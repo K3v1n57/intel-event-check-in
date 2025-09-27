@@ -21,7 +21,7 @@ if (!attendeeListEl) {
   document.querySelector(".container").appendChild(attendeeListEl);
 }
 
-// === Load saved progress ===
+// === Load progress ===
 function loadProgress() {
   const saved = JSON.parse(localStorage.getItem("summitData"));
   if (saved) {
@@ -40,7 +40,7 @@ function saveProgress() {
   );
 }
 
-// === Update UI ===
+// === Update ===
 function updateUI() {
   attendeeCountEl.textContent = attendeeCount;
   waterCountEl.textContent = teamCounts.water;
@@ -64,7 +64,7 @@ function updateUI() {
   });
 }
 
-// === Celebrate when goal is reached ===
+// === Celebration ===
 function celebrate() {
   const winningTeam = Object.keys(teamCounts).reduce((a, b) =>
     teamCounts[a] > teamCounts[b] ? a : b
@@ -81,7 +81,7 @@ function celebrate() {
   greetingEl.style.display = "block";
 }
 
-// === Handle check-in ===
+// === Check-in ===
 checkInForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -96,7 +96,7 @@ checkInForm.addEventListener("submit", (e) => {
   attendees.push({ name, team });
 
   // Greeting
-  greetingEl.textContent = `Welcome, ${name}! Thanks for joining ${
+  greetingEl.textContent = `Welcome to the Team ${name}!🎉 Go ${
     team === "water"
       ? "Team Water Wise 🌊"
       : team === "zero"
@@ -106,12 +106,12 @@ checkInForm.addEventListener("submit", (e) => {
   greetingEl.className = "success-message";
   greetingEl.style.display = "block";
 
-  // Update UI + save progress
+  // Update + save progress
   updateUI();
   saveProgress();
 
   // Celebration check
-  if (attendeeCount === goal) {
+   if (attendeeCount === goal) {
     celebrate();
   }
 
