@@ -70,7 +70,7 @@ function celebrate() {
     teamCounts[a] > teamCounts[b] ? a : b
   );
 
-  greetingEl.textContent = `🎉 Attendance goal reached! Congratulations ${
+  greetingEl.textContent = `🎉 Congratulations, You have reached the attendance goal! 🎉  ${
     winningTeam === "water"
       ? "Team Water Wise 🌊"
       : winningTeam === "zero"
@@ -96,13 +96,13 @@ checkInForm.addEventListener("submit", (e) => {
   attendees.push({ name, team });
 
   // Greeting
-  greetingEl.textContent = `Welcome to the Team ${name}!🎉 Go ${
-    team === "water"
+  greetingEl.textContent = `Welcome to the Team ${name} 🎉. Go ${
+    team === "water" 
       ? "Team Water Wise 🌊"
       : team === "zero"
       ? "Team Net Zero 🌿"
       : "Team Renewables ⚡"
-  }.`;
+  }!`;
   greetingEl.className = "success-message";
   greetingEl.style.display = "block";
 
